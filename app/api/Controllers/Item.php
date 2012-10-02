@@ -5,15 +5,17 @@ class Controllers_Item extends RestController {
 		$this->responseStatus = 200;
 	}
 	public function post() {
-		$this->response = array('TestResponse' => 'I am POST response. Variables sent are - ' . http_build_query($this->request['params']));
-		$this->responseStatus = 201;
-
-		$title = $this->request['params']['name'];
-		$description = $this->request['params']['details'];
-		$category = $this->request['params']['tags'];
+    $params = $this->request['params'];
+    if (empty($params['name'])) {
+      $this->responseStatus = 400;
+      $this->response = array('error' => '');     
+    } else {
+		  $opml = new OPML();
+		  $opml->append($params);
+		  $this->response = array('TestResponse' => 'I am POST response. Variables sent are - ' . http_build_query($this->request['params']));
+		  $this->responseStatus = 201;
+		}
 		
-		$opml = new OPML();
-		$opml->append($title, $description, $category);
 	}
 	public function put() {
 		$this->response = array('TestResponse' => 'I am PUT response. Variables sent are - ' . http_build_query($this->request['params']));

@@ -3,7 +3,7 @@
   <head>
       <meta charset="utf-8"/>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-      <title>List Items</title>
+      <title>Pimetry</title>
       <meta name="description" content=""/>
       <meta name="viewport" content="width=device-width"/>
       <link rel="stylesheet" href="css/main.css"/>
@@ -12,8 +12,10 @@
   <body>
     <div class="container" id="app">
       <div class="row">
-          <h1>List Items</h1>
-          
+          <h1>Pimetry</h1>
+          <p>PimIt is a little bookmarklet lets you add important web things to Pimetry. Use it to clip text, images and videos from any web page.</p> 
+          <p>To use PimIt drag-and-drop the button below to your bookmarks bar or right click it and add it to your favorites for a posting shortcut.</p>
+          <a class="btn" onclick="return false;" href="javascript:var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,s=(e?e():(k)?k():(x?x.createRange().text:0)),f='http://localhost/pimetry/app/add.html',l=d.location,e=encodeURIComponent,u=f+'?u='+e(l.href)+'&t='+e(d.title)+'&s='+e(s)+'&v=4';a=function(){if(!w.open(u,'t','toolbar=0,resizable=1,scrollbars=1,status=1,width=720,height=570'))l.href=u;};if (/Firefox/.test(navigator.userAgent)) setTimeout(a, 0); else a();void(0)">PimIt</a>
       </div>
     </div>
     <script data-main="js/main" src="js/lib/require.js"></script>

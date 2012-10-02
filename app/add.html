@@ -10,8 +10,8 @@
       <script src="js/lib/modernizr.min.js"></script>
   </head>
   <body>
-    <div class="container" id="app">
-      <div class="row">
+    <div class="container-fluid" id="app">
+      <div class="row-fluid">
           <h1>Add Item</h1>
           <form action="api/item" method="post" id="add-item" class="form-horizontal">
             <legend>Item Details</legend>
@@ -24,7 +24,13 @@
             <div class="control-group">
               <label for="details" class="control-label">Details</label>
               <div class="controls">
-                  <textarea id="details"></textarea>
+                  <textarea id="details" name="details"></textarea>
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="url" class="control-label">URL</label>
+              <div class="controls">
+                  <input id="url" name="url" type="text" />
               </div>
             </div>
             <div class="control-group">
@@ -33,6 +39,20 @@
                   <input id="tags" name="tags" type="text" />
               </div>
             </div>
+            <div class="control-group">
+              <label for="type" class="control-label">Type</label>
+              <div class="controls">
+                  <select name="type" id="type">
+                    <option value="event">Event</option>
+                    <option value="image">Image</option>
+                    <option value="link">Link</option>
+                    <option value="quote">Quote</option>
+                    <option value="task">Task</option>
+                    <option value="text" selected>Text</option>
+                    <option value="video">Video</option>
+                  </select>
+              </div>
+            </div>            
             <div class="control-group">
               <div class="controls">
                   <button type="submit" class="btn" id="submit">Add</button>
