@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<opml version="2.0">
+  <head>
+    <title>OPDML</title>
+    <dateCreated></dateCreated>
+    <dateModified></dateModified>
+    <ownerName></ownerName>
+    <ownerEmail></ownerEmail>
+    <ownerId></ownerId>
+    <docs>http://dev.opml.org/spec2.html</docs>
+  </head>
+  <body>
+    <outline text="" description="" created="Mon, 31 Oct 2005 18:21:33 GMT" category="/example,/test"></outline>
+  </body>
+</opml>

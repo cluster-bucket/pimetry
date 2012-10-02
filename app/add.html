@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+      <title>Add Item</title>
+      <meta name="description" content=""/>
+      <meta name="viewport" content="width=device-width"/>
+      <link rel="stylesheet" href="css/main.css"/>
+      <script src="js/lib/modernizr.min.js"></script>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="row">
+          <h1>Add Item</h1>
+          <form action="api/item" method="post" id="add-item" class="form-horizontal">
+            <legend>Item Details</legend>
+            <div class="control-group">
+              <label for="name" class="control-label">Name</label>
+              <div class="controls">
+                  <input id="name" name="name" type="text" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="details" class="control-label">Details</label>
+              <div class="controls">
+                  <textarea id="details"></textarea>
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="tags" class="control-label">Tags</label>
+              <div class="controls">
+                  <input id="tags" name="tags" type="text" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                  <button type="submit" class="btn" id="submit">Add</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    <script data-main="js/main" src="js/lib/require.js"></script>
+  </body>
+</html>

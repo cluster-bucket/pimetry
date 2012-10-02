@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<opml version="2.0">
+  <head>
+    <Title>OPDML</Title>
+    <dateCreated>Mon, 01 Oct 2012 22:43:25 GMT</dateCreated>
+    <dateModified>Mon, 01 Oct 2012 22:43:25 GMT</dateModified>
+    <docs>http://dev.opml.org/spec2.html</docs>
+  </head>
+  <body>
+    <outline text="Ohai!" description="Lorem ipsum dolor sit amet" category="/Example/Category" created="Mon, 01 Oct 2012 22:43:25 GMT"/>
+  </body>
+</opml>
