@@ -52,7 +52,6 @@ class Rest {
 				break;
 			case 'post':
 				// $this->request['params'] = array_merge($_POST, $_GET);
-
 				// Backbone.js posts a json object in the headers
         if ($input = file_get_contents("php://input")){
 	        //test for json

@@ -1,12 +1,10 @@
 <?php
 class Controllers_Item extends RestController {
-  function __construct() {
-    $this->opml = new OPML();
-  }
   public function get() {
     // 'TestResponse' => 'I am GET response. Variables sent are - ' . http_build_query($this->request['params'])
-    $items = $this->opml->show();
-	  $this->response = array($items);
+    $opml = new OPML();
+    $items = $opml->show();
+	  $this->response = $items;
 	  $this->responseStatus = 200;
   }
   public function post() {
@@ -15,7 +13,8 @@ class Controllers_Item extends RestController {
 	    $this->responseStatus = 400;
 	    $this->response = array('error' => '');     
 	  } else {
-	    $this->opml->append($params);
+      $opml = new OPML();
+	    $opml->append($params);
 	    $this->response = array('TestResponse' => 'I am POST response. Variables sent are - ' . http_build_query($this->request['params']));
 	    $this->responseStatus = 201;
 	  }	

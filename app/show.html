@@ -12,16 +12,18 @@
   <body>
     <div class="container-fluid" id="app">
       <div class="row-fluid">
-          <h1>Add Item</h1>
-          <form action="api/item" method="get" id="add-item" class="form-horizontal">
-            <div class="control-group">
-              <div class="controls">
-                  <button type="submit" class="btn" id="submit">Add</button>
-              </div>
-            </div>
-          </form>
-        </div>
+          <h1>Items</h1>
+          <div id="list" class="accordion"></div>
+      </div>
     </div>
-    <!--<script data-main="js/main" src="js/lib/require.js"></script>-->
+    <script type="text/template" id="item-template">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="list" href="#<%= id %>"><%= text %></a>
+      </div>
+      <div id="<%= id %>" class="accordion-body collapse">
+        <div class="accordion-inner"><%= description %></div>
+      </div>
+    </script>
+    <script data-main="js/show" src="js/lib/require.js"></script>
   </body>
 </html>
