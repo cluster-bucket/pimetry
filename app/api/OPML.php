@@ -2,6 +2,16 @@
 class OPML {
   // Set the file
   const file = 'Data/pymetry.opml';
+  
+  public function show() {
+    if (!file_exists(self::file)) {
+      self::createFile();
+    }
+    
+    $xmlDoc = simplexml_load_file(self::file);
+    $body = $xmlDoc->xpath('/opml/body');
+    return $body[0]->asXML();
+  }
 
   public function append($attributes) {
   
