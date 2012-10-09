@@ -21,7 +21,10 @@
         <a class="accordion-toggle" data-toggle="collapse" data-parent="list" href="#<%= id %>"><%= text %></a>
       </div>
       <div id="<%= id %>" class="accordion-body collapse">
-        <div class="accordion-inner"><%= description %></div>
+        <div class="accordion-inner">
+          <div class="description"><%= description %></div>
+          <div class="children"></div>
+        </div>
       </div>
     </script>
     <script data-main="js/show" src="js/lib/require.js"></script>

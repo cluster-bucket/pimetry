@@ -3,13 +3,22 @@ function($, _, Backbone, Items, ItemView) {
   var ShowView = Backbone.View.extend({
     render: function (collection) {
       _.each(collection.models, function (model) {
-        var options, view;
-        
+        var options, view, parentId, parent;
         options = this.itemOptions;
         options.model = model;
-        
         view = new ItemView(options);
-        this.$el.append(view.render().el);
+        
+        parentId = model.get("parent");
+        console.log("parent", parentId);
+        if (parentId && parentId !== "") {
+          parent = this.$("#" + parentId + " .children").eq(0);
+        }
+        
+        if (!parent || parent.length < 1) {
+          parent = this.$el;
+        }
+
+        parent.append(view.render().el);
         
       }, this);
       return this;

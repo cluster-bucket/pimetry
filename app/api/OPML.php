@@ -4,30 +4,42 @@ class OPML {
   const FILE_PATH = 'Data/pymetry.opml';
 
   function parse_items($arr, $items=array()) {
-    
     foreach($arr as $item) {
       $attrs = array();
       $attr = $item['@attributes'];
       foreach($attr as $key => $value) {
         $attrs[$key] = $value;      
       }
-      
-      if (isset($item['outline'])) {
-        $attrs['children'] = $this->parse_items($item['outline']);
-      } else {
-        $attrs['children'] = array();
-      }
-      
       array_push($items, $attrs);
     }
     return $items;  
+  }
+
+  // TODO: Make this recursive
+  function set_parents($xml) {
+    $items = array();
+    foreach($xml as $element) {
+      $attrs = $element->attributes();
+      $children = $element->children();
+      array_push($items, $element); 
+      
+      // Set the parent id on the current item
+      if (isset($attrs['id'])) {
+        $parent_id = $attrs['id'];
+        foreach($children as $child) {
+          $child->addAttribute('parent', $parent_id);
+          array_push($items, $child);
+        }
+      }
+    }
+    return $items;
   }
   
   // Convert XML to associative array
   function to_array($xml) {
     $json = json_encode($xml);
     $xml_arr = json_decode($json, true);
-    $items = $this->parse_items($xml_arr['outline']);
+    $items = $this->parse_items($xml_arr);
     return $items;
   }
   
@@ -38,7 +50,8 @@ class OPML {
     
     $xmlDoc = simplexml_load_file(self::FILE_PATH);
     $body = $xmlDoc->xpath('/opml/body');
-    $items = $this->to_array($body[0]);
+    $xml_items = $this->set_parents($body[0]);
+    $items = $this->to_array($xml_items);
     return $items;
   }
 
